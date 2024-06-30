@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StargazerTest.AppHost", "StargazerTest\StargazerTest.AppHost\StargazerTest.AppHost.csproj", "{065E83C4-A66A-4F36-AFA2-6BDE11865C99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StargazerTest.ServiceDefaults", "StargazerTest\StargazerTest.ServiceDefaults\StargazerTest.ServiceDefaults.csproj", "{84A3E922-C091-4E2C-B442-B6CC5AB6D115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StargazerTest.ApiService", "StargazerTest\StargazerTest.ApiService\StargazerTest.ApiService.csproj", "{89E2AA3C-F063-47AF-BC15-09A4CDABF663}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StargazerTest.Web", "StargazerTest\StargazerTest.Web\StargazerTest.Web.csproj", "{68B40011-3110-4279-A4FE-0D0C4A8EC11B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{065E83C4-A66A-4F36-AFA2-6BDE11865C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{065E83C4-A66A-4F36-AFA2-6BDE11865C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{065E83C4-A66A-4F36-AFA2-6BDE11865C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{065E83C4-A66A-4F36-AFA2-6BDE11865C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A3E922-C091-4E2C-B442-B6CC5AB6D115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A3E922-C091-4E2C-B442-B6CC5AB6D115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A3E922-C091-4E2C-B442-B6CC5AB6D115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A3E922-C091-4E2C-B442-B6CC5AB6D115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E2AA3C-F063-47AF-BC15-09A4CDABF663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E2AA3C-F063-47AF-BC15-09A4CDABF663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E2AA3C-F063-47AF-BC15-09A4CDABF663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E2AA3C-F063-47AF-BC15-09A4CDABF663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B40011-3110-4279-A4FE-0D0C4A8EC11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B40011-3110-4279-A4FE-0D0C4A8EC11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B40011-3110-4279-A4FE-0D0C4A8EC11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B40011-3110-4279-A4FE-0D0C4A8EC11B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

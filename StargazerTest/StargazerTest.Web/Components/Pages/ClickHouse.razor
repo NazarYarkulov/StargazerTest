@@ -1,0 +1,83 @@
+﻿@page "/clickhouse"
+@using System.Data
+@using Bogus
+@using global::ClickHouse.Client.ADO
+@using StargazerTest.ApiService.GraphQL.Models
+@rendermode InteractiveServer
+
+@inject IDbConnection dbClickHouse
+
+<PageTitle>ClickHouse</PageTitle>
+
+<h1>ClickHouseBooks</h1>
+
+<button class="btn btn-primary" @onclick="CreateTable">Create Table</button>
+
+<button class="btn btn-primary" @onclick="GenerateSomeBooks">Generate 5 Books</button>
+
+<button class="btn btn-primary" @onclick="LoadBooks">Load Books</button>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var book in books)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.AuthorName</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    private List<Book> books = new();
+
+    private void CreateTable()
+    {
+        var command = dbClickHouse.CreateCommand();
+        command.CommandText = @"
+        CREATE TABLE IF NOT EXISTS Books (Title String,AuthorName String) ENGINE = MergeTree()ORDER BY Title;";
+        command.ExecuteNonQuery();
+    }
+
+    private void GenerateSomeBooks()
+    {
+        var command = dbClickHouse.CreateCommand();
+        var faker = new Faker<Book>()
+            .RuleFor(b => b.Title, f => f.Lorem.Sentence(3))
+            .RuleFor(b => b.AuthorName, f => f.Name.FullName());
+
+        for (int i = 0; i < 5; i++)
+        {
+            var book = faker.Generate();
+        
+            command.CommandText = $@"INSERT INTO Books (Title, AuthorName) VALUES ('{book.Title.Replace("'", "''")}', '{book.AuthorName.Replace("'", "''")}')";
+            command.ExecuteNonQuery();
+        }
+    }
+    
+
+    private void LoadBooks()
+    {
+        books.Clear();
+        var command = dbClickHouse.CreateCommand();
+        command.CommandText = "SELECT Title, AuthorName FROM Books";
+        
+        using var reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            books.Add(new Book
+            {
+                Title = reader.GetString(0),
+                AuthorName = reader.GetString(1)
+            });
+        }
+    }
+
+}
